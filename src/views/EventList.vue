@@ -14,24 +14,24 @@
           organizer: 'Kat Laydee'
       },{
           id: 5928101,
-          category: 'animal welfare',
-          title: 'Cat Adoption Day',
-          description: 'Find your new feline',
-          location: 'Meow Toen',
-          date: 'January 28 2023',
+          category: 'Laravel',
+          title: 'Laracon Asia',
+          description: 'lorem text for test',
+          location: 'Mumbai',
+          date: 'December 28 2022',
           time: '12:00',
           petsAllowed: true,
-          organizer: 'Kat Laydee'
+          organizer: 'Unacademy'
       },{
           id: 5928101,
-          category: 'animal welfare',
-          title: 'Cat Adoption Day',
+          category: 'Wordpress',
+          title: 'WordCamp-2022',
           description: 'Find your new feline',
-          location: 'Meow Toen',
-          date: 'January 28 2023',
+          location: 'Dhaka',
+          date: 'December 20 2022',
           time: '12:00',
           petsAllowed: true,
-          organizer: 'Kat Laydee'
+          organizer: 'W3Devs'
       }
   ]
 </script>
