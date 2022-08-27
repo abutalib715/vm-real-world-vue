@@ -19,6 +19,7 @@ import HelloWorld from "./components/HelloWorld.vue";
       <nav>
         <RouterLink :to="{ name: 'EventList' }">Events</RouterLink>
         <RouterLink :to="{ name: 'About' }">About</RouterLink>
+        <RouterLink :to="{ name: 'EventCreate' }">Event Create</RouterLink>
       </nav>
     </div>
   </header>
