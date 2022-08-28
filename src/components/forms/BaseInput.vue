@@ -13,7 +13,8 @@
 </script>
 <template>
     <label>{{ label }}</label>
-    <input type="text" 
+    <input
+        v-bind="$attrs"
         :placeholder="label" 
         class="field"
         :value="modelValue"

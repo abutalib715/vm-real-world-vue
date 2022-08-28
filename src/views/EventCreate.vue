@@ -1,5 +1,6 @@
 <script setup>
 import BaseInput from '../components/forms/BaseInput.vue';
+import BaseSelect from '../components/forms/BaseSelect.vue';
 
     const categories = [
         'sustainablity',
@@ -27,35 +28,31 @@ import BaseInput from '../components/forms/BaseInput.vue';
     <div>
         <form>
         <h1>Create an event</h1>
-        <label>Select a category</label>
-        <select v-model="event.category">
-            <option v-for="category in categories" 
-            :value="category" 
-            :key="category"
-            :selected="category === event.category">
-                {{ category }}
-            </option>
-        </select>
+        <BaseSelect 
+            :options="categories"
+            v-model="event.category"
+            label="Select a category"
+        />
         
         <h3>Name & describe your event</h3>
         <BaseInput 
             v-model="event.title"
             label="Title"
             type="text"
-             />
+        />
              
         <BaseInput 
             v-model="event.description"
             label="Description"
             type="text"
-             />
+        />
              
         <h3>Where is your event?</h3>
         <BaseInput 
             v-model="event.location"
             label="Location"
             type="text"
-             />
+        />
         
         <h3>Are pets allowed?</h3>
         <div>
