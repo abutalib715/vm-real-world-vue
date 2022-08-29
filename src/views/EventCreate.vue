@@ -1,6 +1,8 @@
 <script setup>
 import BaseInput from '../components/forms/BaseInput.vue';
 import BaseSelect from '../components/forms/BaseSelect.vue';
+import BaseCheckbox from '../components/forms/BaseCheckbox.vue';
+import BaseRadio from '../components/forms/BaseRadio.vue';
 
     const categories = [
         'sustainablity',
@@ -56,22 +58,24 @@ import BaseSelect from '../components/forms/BaseSelect.vue';
         
         <h3>Are pets allowed?</h3>
         <div>
-            <input type="radio" v-model="event.pets" :value="1" name="pets">
-            <label>Yes</label>
+            <BaseRadio v-model="event.pets"
+             label="Yes" :value="1" name="pets"
+            />
         </div>
         <div>
-            <input type="radio" v-model="event.pets" :value="0" name="pets">
-            <label>No</label>
+            <BaseRadio v-model="event.pets"
+             label="No" :value="0" name="pets"
+            />
         </div>
 
         <h3>Extras</h3>
         <div>
-            <input type="checkbox" v-model="event.extras.catering" class="field">
-            <label>Catering</label>
+            <BaseCheckbox v-model="event.extras.catering"
+            label="Catering"/>
         </div>
         <div>
-            <input type="checkbox" v-model="event.extras.music" class="field">
-            <label>Live Music</label>
+            <BaseCheckbox v-model="event.extras.music"
+            label="Live Music"/>
         </div>
 
         <button class="button -fill-gradiant" type="submit">Submit</button>

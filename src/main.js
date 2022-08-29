@@ -26,3 +26,26 @@ const app = createApp(App);
 app.use(router);
 
 app.mount("#app");
+
+
+// /** webpack */
+// const files = require.context(".", false, /\.js$/);
+// const modules = {};
+
+// files.keys().forEach(key => {
+//     if (key === "./index.js") return;
+//     modules[key.replace(/(\.\/|\.js)/g, "")] = files(key).default;
+// });
+
+// export default modules;
+// /** vite */
+// const files = import.meta.globEager("./*.js");
+
+// const modules = {};
+// for (const key in files) {
+//     // if (key === "./index.js") continue;
+//     modules[key.replace(/(\.\/|\.js)/g, "")] = files[key].default;
+// }
+// console.log(files, modules);
+
+// export default modules;
