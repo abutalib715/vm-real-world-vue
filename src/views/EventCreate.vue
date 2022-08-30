@@ -1,8 +1,9 @@
 <script setup>
-import BaseInput from '../components/forms/BaseInput.vue';
-import BaseSelect from '../components/forms/BaseSelect.vue';
-import BaseCheckbox from '../components/forms/BaseCheckbox.vue';
-import BaseRadio from '../components/forms/BaseRadio.vue';
+    import axios from 'axios';
+    import BaseInput from '../components/forms/BaseInput.vue';
+    import BaseSelect from '../components/forms/BaseSelect.vue';
+    import BaseCheckbox from '../components/forms/BaseCheckbox.vue';
+    import BaseRadioGroup from '../components/forms/BaseRadioGroup.vue';
 
     const categories = [
         'sustainablity',
@@ -23,12 +24,26 @@ import BaseRadio from '../components/forms/BaseRadio.vue';
             catering: false,
             music: false
         }
-
+    }
+    const petOptions = [
+            { label: 'Yes', value: 1},
+            { label: 'No', value: 0}
+        ]
+        
+    function submitForm() {
+        axios.post(
+            'https://my-json-server.typicode.com/abutalib715/my-json-server/events',
+            event
+            ).then( res => {
+                console.log('Response',res)
+            }).catch(error => {
+                console.log('Response',error)
+            })
     }
 </script>
 <template>
     <div>
-        <form>
+        <form @submit.prevent="submitForm">
         <h1>Create an event</h1>
         <BaseSelect 
             :options="categories"
@@ -58,13 +73,11 @@ import BaseRadio from '../components/forms/BaseRadio.vue';
         
         <h3>Are pets allowed?</h3>
         <div>
-            <BaseRadio v-model="event.pets"
-             label="Yes" :value="1" name="pets"
-            />
-        </div>
-        <div>
-            <BaseRadio v-model="event.pets"
-             label="No" :value="0" name="pets"
+            <BaseRadioGroup 
+            :options="petOptions"
+            name="pets"
+            v-model="event.pets"
+            
             />
         </div>
 
