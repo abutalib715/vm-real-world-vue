@@ -1,15 +1,24 @@
 <script setup>
     import { ref } from 'vue'
-    import { useRoute } from 'vue-router';
+    import { useRoute, useRouter } from 'vue-router';
     import EventService from '@/services/EventService.js'
 
     const route = useRoute()
+    const router = useRouter()
 
     const event = ref(null)
     const id = route.params.id
     EventService.getEvent(route.params.id).then(response => {
         event.value = response.data
     }).catch(error => {
+      if(error.response && error.response.status == "404"){
+        router.push({
+          name: "404Resource",
+          params: { resource: 'event' }
+        });
+      } else {
+        router.push({ name: "NetworkError" });
+      }
         console.log(error)
     })
 </script>
